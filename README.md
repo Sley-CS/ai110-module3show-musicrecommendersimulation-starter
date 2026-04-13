@@ -13,7 +13,8 @@ Your goal is to:
 
 Replace this paragraph with your own summary of what your version does.
 
----
+---  
+This project builds a small music recommender that matches user preferences like mood, genre, and energy to a tiny song dataset.
 
 ## How The System Works
 
