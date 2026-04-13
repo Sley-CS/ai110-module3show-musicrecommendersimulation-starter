@@ -81,7 +81,19 @@ You can include a simple diagram or bullet list if helpful.
           energy but are labeled as a different genre. It can also reflect bias in the small dataset, meaning users may get repetitive recommendations if some genres or moods are underrepresented.
 
 
-          ![Screenshot of terminal output showing the recommendations](images/recommendations.png)
+## Terminal Screenshots
+
+High-Energy Pop:
+
+![Terminal output for High-Energy Pop recommendations](images/high-energy-pop-terminal.png)
+
+Chill Lofi:
+
+![Terminal output for Chill Lofi recommendations](images/chill-lofi-terminal.png)
+
+Deep Intense Rock:
+
+![Terminal output for Deep Intense Rock recommendations](images/deep-intense-rock-terminal.png)
 
 
 ## Getting Started
