@@ -11,10 +11,10 @@ Your goal is to:
 - Evaluate what your system gets right and wrong
 - Reflect on how this mirrors real world AI recommenders
 
-Replace this paragraph with your own summary of what your version does.
+This project builds a small music recommender that matches user preferences like mood, genre, and energy to a tiny song dataset.
 
 ---  
-This project builds a small music recommender that matches user preferences like mood, genre, and energy to a tiny song dataset.
+
 
 ## How The System Works
 
