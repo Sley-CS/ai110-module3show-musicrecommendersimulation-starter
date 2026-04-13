@@ -5,7 +5,8 @@
 Give your model a short, descriptive name.  
 Example: **VibeFinder 1.0**  
 
----      Model name: MoodSense
+---
+    Model name: MoodSense
 
 ## 2. Intended Use  
 
