@@ -29,7 +29,60 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
----
+--- Apps like spotify or YouTube usually mix two ideas: they look at what similar users enjoyed (collaborative filtering) and they compare item attributes to your taste (content-based filtering). For your class simulation, prioritize the content-based version first, because it is simpler, easier to explain, and works well with your small song dataset where you already have clear song features.
+
+      Song Features 
+
+              id
+              title
+              artist
+              genre
+              mood
+              energy
+              tempo_bpm
+              valence
+              danceability
+              acousticness
+      
+      UserProfile Features
+
+              favorite_genre
+              favorite_mood
+              target_energy
+              likes_acoustic
+
+    Algorithm Recipe
+
+            1. Clean and prepare inputs.
+                - Make genre and mood text lowercase so matches are consistent.
+                - Read each song’s genre, mood, energy, and acousticness.
+            2. Start each song at zero points.
+            3. Score genre first (strongest signal).
+                - Exact genre match: add 2.0 points.
+                - Optional soft match (example: pop and indie pop): add 1.0 point instead of 2.0.
+            4. Score mood next.
+                - Exact mood match: add 1.0 point.
+            5. Score energy closeness.
+                  - Compare the song’s energy to the user’s target energy.
+                  - Give more points when the song is closer, fewer points when it is farther.
+                  - Keep this part on a 0 to 1 scale so it helps ranking but does not overpower genre.
+            6. Optional acoustic preference boost.
+                  - If the user likes acoustic songs, give a small bonus to songs with high acousticness.
+                  - If the user does not like acoustic songs, give a small bonus to songs with low acousticness.
+                  - Keep this bonus small so it only fine-tunes results.
+            7.  Build a short explanation per song.
+                  - Example style: “Genre match, mood match, and energy is very close.”
+            8.  Rank and return top results.
+                  - Sort songs by total score (highest first).
+                  - Return top k songs with score and explanation.
+                  - If two songs tie, prefer the one with closer energy
+
+    Note:  This system may over-prioritize genre, so it can miss songs that feel right for the user’s mood and  
+          energy but are labeled as a different genre. It can also reflect bias in the small dataset, meaning users may get repetitive recommendations if some genres or moods are underrepresented.
+
+
+          ![Screenshot of terminal output showing the recommendations](images/recommendations.png)
+
 
 ## Getting Started
 
