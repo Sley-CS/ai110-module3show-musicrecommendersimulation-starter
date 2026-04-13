@@ -80,6 +80,29 @@ You can include a simple diagram or bullet list if helpful.
     Note:  This system may over-prioritize genre, so it can miss songs that feel right for the user’s mood and  
           energy but are labeled as a different genre. It can also reflect bias in the small dataset, meaning users may get repetitive recommendations if some genres or moods are underrepresented.
 
+## Terminal Screenshots
+
+Phase 3:
+
+![Screenshot of terminal output showing recommendations (titles, scores, and reasons)](images/recommendations.png)
+
+Phase 4 (Chill Lofi):
+
+![Screenshot of terminal output for Chill Lofi profile recommendations](images/ChillLofiTerminalOutPut.png)
+
+Phase 4 (High-Energy Pop):
+
+![Screenshot of terminal output for High-Energy Pop profile recommendations](images/HighEnergyPopTerminalOutput.png)
+
+Phase 4 (Deep Intense Rock):
+
+![Screenshot of terminal output for Deep Intense Rock profile recommendations](images/IntenseRockTerminalOutput.png)
+
+
+            
+
+
+        
 
 ## Getting Started
 
