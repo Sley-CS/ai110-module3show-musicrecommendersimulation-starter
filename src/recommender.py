@@ -79,10 +79,16 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     score = 0.0
     reasons: List[str] = []
 
+    # Sensitivity-test weights: genre reduced, energy increased.
+    genre_weight = 1.0
+    mood_weight = 1.0
+    energy_weight = 2.0
+
     # Support either starter keys (genre/mood/energy) or profile-style keys.
     preferred_genre = user_prefs.get("genre", user_prefs.get("favorite_genre", ""))
     preferred_mood = user_prefs.get("mood", user_prefs.get("favorite_mood", ""))
     target_energy = user_prefs.get("energy", user_prefs.get("target_energy"))
+    disable_mood = bool(user_prefs.get("disable_mood_weight", False))
 
     song_genre = str(song.get("genre", "")).strip().lower()
     song_mood = str(song.get("mood", "")).strip().lower()
@@ -91,19 +97,20 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     preferred_mood_norm = str(preferred_mood).strip().lower()
 
     if preferred_genre_norm and song_genre == preferred_genre_norm:
-        score += 2.0
-        reasons.append("genre match (+2.0)")
+        score += genre_weight
+        reasons.append(f"genre match (+{genre_weight:.1f})")
 
-    if preferred_mood_norm and song_mood == preferred_mood_norm:
-        score += 1.0
-        reasons.append("mood match (+1.0)")
+    if not disable_mood and preferred_mood_norm and song_mood == preferred_mood_norm:
+        score += mood_weight
+        reasons.append(f"mood match (+{mood_weight:.1f})")
 
     if target_energy is not None and song.get("energy") is not None:
         song_energy = float(song["energy"])
         energy_diff = abs(song_energy - float(target_energy))
         energy_similarity = max(0.0, 1.0 - energy_diff)
-        score += energy_similarity
-        reasons.append(f"energy close to target (+{energy_similarity:.2f})")
+        weighted_energy_score = energy_weight * energy_similarity
+        score += weighted_energy_score
+        reasons.append(f"energy close to target (+{weighted_energy_score:.2f})")
 
     if not reasons:
         reasons.append("no direct preference matches")
