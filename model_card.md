@@ -36,10 +36,11 @@ Prompts:
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
 
-    For each song, it gives out points when something matches well; like  a mood match, or an energy level that’s close to what the user asked for. 
-    It also subtracts or reduces points when things don’t line up then it adds up all those points into a final score and sorts the songs from 
-    highest to lowest. Then the top‑scoring songs become the recommendations. descrIt’s basically a vibe matching system. It looks at what the user 
-    wants, checks how close each song is to that vibe, and ranks the songs by best fit.
+    For each song, it gives out points when something matches well; like  a mood match, or an energy level that’s close 
+    to what the user asked for. It also subtracts or reduces points when things don’t line up then it adds up all those 
+    points into a final score and sorts the songs from highest to lowest. Then the top‑scoring songs become the recommendations.
+    It’s basically a vibe matching system. It looks at what the user wants, checks how close each song is to that vibe, and ranks 
+    the songs by best fit.
 
 
 ## 4. Data  
